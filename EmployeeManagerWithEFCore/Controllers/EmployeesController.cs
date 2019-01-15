@@ -55,7 +55,7 @@ namespace EmployeeManagerWithEFCore.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Salary,Title")] Employee employee)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) 
             {
                 var department = await _context.Departments.FindAsync(2);//Hack to get this employee in Department
                 department.Employees.Add(employee);
